@@ -1,4 +1,6 @@
 import { MCPServer } from "mcp-framework";
+// Remove the WeatherTool import if it's not used elsewhere
+// import WeatherTool from "./tools/WeatherTool.js"; 
 
 // Read port from environment variable, fallback to 8080
 const port = parseInt(process.env.PORT || "8080", 10);
