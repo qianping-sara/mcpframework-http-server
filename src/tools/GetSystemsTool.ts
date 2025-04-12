@@ -21,11 +21,13 @@ class GetSystemsTool extends MCPTool<{}> {
 
   // Removed input parameter from execute method
   async execute() {
-    const apiUrl = "http://localhost:3000/api/systems";
+    // Read API base URL from environment variable, default to localhost:3000
+    const apiBaseUrl = process.env.LOCAL_API_BASE_URL || "http://localhost:3000";
+    const apiUrl = `${apiBaseUrl}/api/mcp/systems`;
+
     // Read the API token from environment variables
     const authToken = process.env.LOCAL_API_TOKEN;
 
-    // Check if the token is available
     if (!authToken) {
       console.error("Error: LOCAL_API_TOKEN environment variable is not set.");
       throw new Error("Authentication token is missing. Please set LOCAL_API_TOKEN.");
