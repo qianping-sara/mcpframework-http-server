@@ -1,9 +1,12 @@
+#!/usr/bin/env node
 import { MCPServer } from "mcp-framework";
+// Read port from environment variable, fallback to 8080
+const port = parseInt(process.env.PORT || "8080", 10);
 const server = new MCPServer({
     transport: {
         type: "http-stream",
         options: {
-            port: 8080, // Port to listen on (default: 8080)
+            port: port, // Use dynamic port
             endpoint: "/mcp", // HTTP endpoint path (default: "/mcp")
             responseMode: "batch", // Response mode: "batch" or "stream" (default: "batch")
             maxMessageSize: "4mb", // Maximum message size (default: "4mb")
