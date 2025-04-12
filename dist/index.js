@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import dotenv from 'dotenv';
+// Load environment variables specifically from .env.local
+dotenv.config({ path: '.env.local' });
 import { MCPServer } from "mcp-framework";
 // Remove the WeatherTool import if it's not used elsewhere
 // import WeatherTool from "./tools/WeatherTool.js"; 
